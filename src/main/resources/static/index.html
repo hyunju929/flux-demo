@@ -31,7 +31,7 @@
             cursor: pointer;
             margin-bottom: 20px;
             transition: color 0.3s ease;
-            color: black;
+            color: black; /* 기본 텍스트 색상을 검정색으로 설정 */
         }
 
         input[type="button"] {
@@ -56,7 +56,7 @@
         .color-changer label {
             display: inline-block;
             margin-right: 10px;
-            color: black;
+            color: black; /* 'Change background color:' 텍스트 색상을 검정색으로 설정 */
         }
 
         .image-container {
@@ -71,12 +71,10 @@
 </head>
 <body>
 <div class="container">
-    <!-- 이미지가 텍스트 위에 오도록 위치 변경 -->
     <div class="image-container">
         <img src="https://it.chosun.com/news/photo/202404/2023092114019_379679_495.jpg" alt="Cocktail Cloud Image">
     </div>
     
-    <!-- 텍스트 수정 -->
     <h1 class="text_h1">Click to change to orange</h1>
     <h2 class="text_h2">Click to change to green</h2>
 
@@ -101,16 +99,16 @@
         text_h2.style.color = (text_h2.style.color === 'green') ? 'black' : 'green';
     };
 
-    // 배경색 변경 버튼 클릭 시 배경색과 텍스트 색상 변경
+    // 배경색 변경 버튼 클릭 시 배경색만 변경
     document.querySelectorAll('.color-changer input[type="button"]').forEach(function(button) {
         button.addEventListener('click', function() {
             var bgColor = (this.value === 'Black') ? 'black' : 'white';
-
-            // 배경색 변경
             document.body.style.backgroundColor = bgColor;
 
-            // h1, h2 텍스트 색상은 항상 검정색 유지
-            text_h1.style.color = 'black';
-            text_h2.style.color = 'black';
+            // 텍스트 색상은 클릭할 때만 변경되므로 여기서는 건드리지 않음
+        });
+    });
 
-            // 'Change background
+</script>
+</body>
+</html>
