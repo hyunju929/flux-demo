@@ -9,15 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* 기본 배경색 */
-            color: #333;
-            line-height: 1.6;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
-            background-image: url('https://images.unsplash.com/photo-1498605089994-b8739d407118'); /* 클라우드 배경 이미지 */
+            background-image: url('https://static.wixstatic.com/media/49b4db_7ffb2acc8e0244eeb0f811f01eeb2fbf~mv2.jpg/v1/fill/w_2846,h_1094,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/49b4db_7ffb2acc8e0244eeb0f811f01eeb2fbf~mv2.jpg'); /* 클라우드 배경 이미지 */
             background-size: cover; /* 배경 이미지를 화면에 맞게 조정 */
             background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
             background-attachment: fixed; /* 스크롤 시 배경 이미지 고정 */
@@ -30,33 +27,18 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #fff;
-            border: 1px solid black;
+            border: 1px solid black; /* 얇은 검은색 테두리 추가 */
         }
 
         h1, h2 {
             cursor: pointer;
             margin-bottom: 20px;
             transition: color 0.3s ease;
-            color: black;
-        }
-
-        input[type="button"] {
-            padding: 10px 20px;
-            margin: 0 10px;
-            border: none;
-            cursor: pointer;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="button"]:hover {
-            background-color: #0056b3;
+            color: black; /* 기본 텍스트 색상을 검정색으로 설정 */
         }
 
         .image-container {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* 이미지 아래에 여백 추가 */
         }
 
         .image-container img {
@@ -67,25 +49,32 @@
 </head>
 <body>
 <div class="container">
+    <!-- 이미지가 텍스트 위에 오도록 위치 변경 -->
     <div class="image-container">
         <img src="https://it.chosun.com/news/photo/202404/2023092114019_379679_495.jpg" alt="Cocktail Cloud Image">
     </div>
-    
+
+    <h1 class="text_h1">Click to change to red</h1>
+    <h2 class="text_h2">Click to change to blue</h2>
     <h1 class="text_h1">Click to change to orange</h1>
     <h2 class="text_h2">Click to change to green</h2>
 </div>
 
 <script>
-    var text_h1 = document.querySelector('.text_h1');
-    var text_h2 = document.querySelector('.text_h2');
+    var text_h1 = document.querySelectorAll('.text_h1');
+    var text_h2 = document.querySelectorAll('.text_h2');
 
-    text_h1.onclick = function () {
-        text_h1.style.color = (text_h1.style.color === 'orange') ? 'black' : 'orange';
-    };
+    text_h1.forEach(function(element) {
+        element.onclick = function () {
+            element.style.color = (element.style.color === 'red') ? 'black' : (element.style.color === 'orange') ? 'black' : 'red';
+        };
+    });
 
-    text_h2.onclick = function () {
-        text_h2.style.color = (text_h2.style.color === 'green') ? 'black' : 'green';
-    };
+    text_h2.forEach(function(element) {
+        element.onclick = function () {
+            element.style.color = (element.style.color === 'blue') ? 'black' : (element.style.color === 'green') ? 'black' : 'blue';
+        };
+    });
 </script>
 </body>
 </html>
