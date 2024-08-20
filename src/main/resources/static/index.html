@@ -25,13 +25,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #fff;
+            border: 1px solid black; /* 얇은 검은색 테두리 추가 */
         }
 
         h1, h2 {
             cursor: pointer;
             margin-bottom: 20px;
             transition: color 0.3s ease;
-            color: black; /* 기본 텍스트 색상을 검정색으로 설정 */
+            color: black;
         }
 
         input[type="button"] {
@@ -56,7 +57,7 @@
         .color-changer label {
             display: inline-block;
             margin-right: 10px;
-            color: black; /* 'Change background color:' 텍스트 색상을 검정색으로 설정 */
+            color: black;
         }
 
         .image-container {
@@ -90,7 +91,6 @@
     var text_h2 = document.querySelector('.text_h2');
     var colorChangerLabel = document.querySelector('.color-changer label');
 
-    // 텍스트 클릭 시 색상 변경
     text_h1.onclick = function () {
         text_h1.style.color = (text_h1.style.color === 'orange') ? 'black' : 'orange';
     };
@@ -99,13 +99,10 @@
         text_h2.style.color = (text_h2.style.color === 'green') ? 'black' : 'green';
     };
 
-    // 배경색 변경 버튼 클릭 시 배경색만 변경
     document.querySelectorAll('.color-changer input[type="button"]').forEach(function(button) {
         button.addEventListener('click', function() {
             var bgColor = (this.value === 'Black') ? 'black' : 'white';
             document.body.style.backgroundColor = bgColor;
-
-            // 텍스트 색상은 클릭할 때만 변경되므로 여기서는 건드리지 않음
         });
     });
 
