@@ -31,7 +31,7 @@
             cursor: pointer;
             margin-bottom: 20px;
             transition: color 0.3s ease;
-            color: black; /* 기본 텍스트 색상을 검정색으로 설정 */
+            color: black;
         }
 
         input[type="button"] {
@@ -56,11 +56,11 @@
         .color-changer label {
             display: inline-block;
             margin-right: 10px;
-            color: black; /* 'Change background color:' 텍스트 색상을 검정색으로 설정 */
+            color: black;
         }
 
         .image-container {
-            margin-bottom: 20px; /* 이미지 아래에 여백 추가 */
+            margin-bottom: 20px;
         }
 
         .image-container img {
@@ -90,6 +90,7 @@
     var text_h1 = document.querySelector('.text_h1');
     var text_h2 = document.querySelector('.text_h2');
 
+    // 텍스트 클릭 시 색상 변경
     text_h1.onclick = function () {
         text_h1.style.color = (text_h1.style.color === 'red') ? 'black' : 'red';
     };
@@ -98,14 +99,25 @@
         text_h2.style.color = (text_h2.style.color === 'blue') ? 'black' : 'blue';
     };
 
+    // 배경색 변경 버튼 클릭 시 배경색과 텍스트 색상 변경
     document.querySelectorAll('.color-changer input[type="button"]').forEach(function(button) {
         button.addEventListener('click', function() {
             var bgColor = (this.value === 'Black') ? 'black' : 'white';
             var textColor = (bgColor === 'black') ? 'white' : 'black';
 
+            // 배경색과 텍스트 색상 변경
             document.body.style.backgroundColor = bgColor;
             document.body.style.color = textColor;
-            text_h1.style.color = 'black'; // 텍스트 색상을 항상 검정색으로 설정
-            text_h2.style.color = 'black'; // 텍스트 색상을 항상 검정색으로 설정
 
-            // 'Change background color:' 텍스트 색상을 검정색
+            // h1, h2 텍스트 색상을 배경색에 맞게 다시 설정
+            text_h1.style.color = (bgColor === 'black') ? 'white' : 'black';
+            text_h2.style.color = (bgColor === 'black') ? 'white' : 'black';
+
+            // 'Change background color:' 텍스트 색상 변경
+            document.querySelector('.color-changer label').style.color = textColor;
+        });
+    });
+
+</script>
+</body>
+</html>
