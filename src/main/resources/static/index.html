@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Changer with Image</title>
+    <title>Color Changer with Cloud Background</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +17,11 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1498605089994-b8739d407118'); /* 클라우드 배경 이미지 */
+            background-size: cover; /* 배경 이미지를 화면에 맞게 조정 */
+            background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
+            background-attachment: fixed; /* 스크롤 시 배경 이미지 고정 */
+            background-position: center; /* 배경 이미지 위치 중앙 */
         }
 
         .container {
@@ -26,9 +31,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             border: 1px solid black;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/oriental-tiles.png'); /* 배경 무늬 추가 */
-            background-size: cover; /* 배경 이미지를 채우도록 설정 */
-            background-repeat: no-repeat; /* 배경 이미지 반복을 방지 */
         }
 
         h1, h2 {
