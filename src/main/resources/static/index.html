@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f8f9fa; /* 기본 배경색 */
             color: #333;
             line-height: 1.6;
             display: flex;
@@ -17,7 +17,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
-            background-image: url('https://static.wixstatic.com/media/49b4db_7ffb2acc8e0244eeb0f811f01eeb2fbf~mv2.jpg/v1/fill/w_2846,h_1094,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/49b4db_7ffb2acc8e0244eeb0f811f01eeb2fbf~mv2.jpg'); /* 클라우드 배경 이미지 */
+            background-image: url('https://images.unsplash.com/photo-1498605089994-b8739d407118'); /* 클라우드 배경 이미지 */
             background-size: cover; /* 배경 이미지를 화면에 맞게 조정 */
             background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
             background-attachment: fixed; /* 스크롤 시 배경 이미지 고정 */
@@ -55,16 +55,6 @@
             background-color: #0056b3;
         }
 
-        .color-changer {
-            margin-top: 20px;
-        }
-
-        .color-changer label {
-            display: inline-block;
-            margin-right: 10px;
-            color: black;
-        }
-
         .image-container {
             margin-bottom: 20px;
         }
@@ -83,18 +73,11 @@
     
     <h1 class="text_h1">Click to change to orange</h1>
     <h2 class="text_h2">Click to change to green</h2>
-
-    <div class="color-changer">
-        <label style="color: black;">Change background color:</label>
-        <input type="button" value="Black">
-        <input type="button" value="White">
-    </div>
 </div>
 
 <script>
     var text_h1 = document.querySelector('.text_h1');
     var text_h2 = document.querySelector('.text_h2');
-    var colorChangerLabel = document.querySelector('.color-changer label');
 
     text_h1.onclick = function () {
         text_h1.style.color = (text_h1.style.color === 'orange') ? 'black' : 'orange';
@@ -103,14 +86,6 @@
     text_h2.onclick = function () {
         text_h2.style.color = (text_h2.style.color === 'green') ? 'black' : 'green';
     };
-
-    document.querySelectorAll('.color-changer input[type="button"]').forEach(function(button) {
-        button.addEventListener('click', function() {
-            var bgColor = (this.value === 'Black') ? 'black' : 'white';
-            document.body.style.backgroundColor = bgColor;
-        });
-    });
-
 </script>
 </body>
 </html>
