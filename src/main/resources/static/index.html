@@ -31,7 +31,7 @@
             cursor: pointer;
             margin-bottom: 20px;
             transition: color 0.3s ease;
-            color: black;
+            color: black; /* 기본 텍스트 색상을 검정색으로 설정 */
         }
 
         input[type="button"] {
@@ -56,11 +56,11 @@
         .color-changer label {
             display: inline-block;
             margin-right: 10px;
-            color: black;
+            color: black; /* 'Change background color:' 텍스트 색상을 검정색으로 설정 */
         }
 
         .image-container {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* 이미지 아래에 여백 추가 */
         }
 
         .image-container img {
@@ -89,6 +89,7 @@
 <script>
     var text_h1 = document.querySelector('.text_h1');
     var text_h2 = document.querySelector('.text_h2');
+    var colorChangerLabel = document.querySelector('.color-changer label');
 
     // 텍스트 클릭 시 색상 변경
     text_h1.onclick = function () {
@@ -103,18 +104,16 @@
     document.querySelectorAll('.color-changer input[type="button"]').forEach(function(button) {
         button.addEventListener('click', function() {
             var bgColor = (this.value === 'Black') ? 'black' : 'white';
-            var textColor = (bgColor === 'black') ? 'white' : 'black';
 
-            // 배경색과 텍스트 색상 변경
+            // 배경색 변경
             document.body.style.backgroundColor = bgColor;
-            document.body.style.color = textColor;
 
-            // h1, h2 텍스트 색상을 배경색에 맞게 다시 설정
-            text_h1.style.color = (bgColor === 'black') ? 'white' : 'black';
-            text_h2.style.color = (bgColor === 'black') ? 'white' : 'black';
+            // h1, h2 텍스트 색상은 항상 검정색 유지
+            text_h1.style.color = 'black';
+            text_h2.style.color = 'black';
 
-            // 'Change background color:' 텍스트 색상 변경
-            document.querySelector('.color-changer label').style.color = textColor;
+            // 'Change background color:' 텍스트 색상도 검정색 유지
+            colorChangerLabel.style.color = 'black';
         });
     });
 
